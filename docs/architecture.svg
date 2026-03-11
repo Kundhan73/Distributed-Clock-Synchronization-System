@@ -1,0 +1,104 @@
+<svg width="900" height="620" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="900" height="620" fill="#F8FAFC" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#1E293B">Distributed Clock Synchronization System</text>
+  <text x="450" y="58" text-anchor="middle" font-size="13" fill="#64748B">Network Architecture — Phase 1</text>
+
+  <!-- ===== SERVER BOX ===== -->
+  <rect x="340" y="80" width="220" height="130" rx="10" fill="#1E40AF" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="450" y="106" text-anchor="middle" font-size="14" font-weight="bold" fill="white">TIME SERVER</text>
+  <line x1="350" y1="112" x2="550" y2="112" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="450" y="130" text-anchor="middle" font-size="11" fill="#BFDBFE">UDP Socket (port 5005)</text>
+  <text x="450" y="148" text-anchor="middle" font-size="11" fill="#BFDBFE">TCP/SSL Socket (port 5006)</text>
+  <text x="450" y="166" text-anchor="middle" font-size="11" fill="#BFDBFE">Stratum 1 Reference Clock</text>
+  <text x="450" y="184" text-anchor="middle" font-size="11" fill="#BFDBFE">Thread per client handler</text>
+  <text x="450" y="200" text-anchor="middle" font-size="11" fill="#BFDBFE">Timestamp generator</text>
+
+  <!-- ===== CLIENT 1 ===== -->
+  <rect x="50" y="310" width="180" height="120" rx="10" fill="#065F46" stroke="#047857" stroke-width="2"/>
+  <text x="140" y="334" text-anchor="middle" font-size="13" font-weight="bold" fill="white">CLIENT 1</text>
+  <line x1="60" y1="340" x2="220" y2="340" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="140" y="358" text-anchor="middle" font-size="11" fill="#A7F3D0">UDP sync requests</text>
+  <text x="140" y="375" text-anchor="middle" font-size="11" fill="#A7F3D0">Offset calculator</text>
+  <text x="140" y="392" text-anchor="middle" font-size="11" fill="#A7F3D0">Drift corrector</text>
+  <text x="140" y="409" text-anchor="middle" font-size="11" fill="#A7F3D0">Local clock adjuster</text>
+
+  <!-- ===== CLIENT 2 ===== -->
+  <rect x="360" y="310" width="180" height="120" rx="10" fill="#065F46" stroke="#047857" stroke-width="2"/>
+  <text x="450" y="334" text-anchor="middle" font-size="13" font-weight="bold" fill="white">CLIENT 2</text>
+  <line x1="370" y1="340" x2="530" y2="340" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="450" y="358" text-anchor="middle" font-size="11" fill="#A7F3D0">UDP sync requests</text>
+  <text x="450" y="375" text-anchor="middle" font-size="11" fill="#A7F3D0">Offset calculator</text>
+  <text x="450" y="392" text-anchor="middle" font-size="11" fill="#A7F3D0">Drift corrector</text>
+  <text x="450" y="409" text-anchor="middle" font-size="11" fill="#A7F3D0">Local clock adjuster</text>
+
+  <!-- ===== CLIENT N ===== -->
+  <rect x="670" y="310" width="180" height="120" rx="10" fill="#065F46" stroke="#047857" stroke-width="2"/>
+  <text x="760" y="334" text-anchor="middle" font-size="13" font-weight="bold" fill="white">CLIENT N</text>
+  <line x1="680" y1="340" x2="840" y2="340" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="760" y="358" text-anchor="middle" font-size="11" fill="#A7F3D0">UDP sync requests</text>
+  <text x="760" y="375" text-anchor="middle" font-size="11" fill="#A7F3D0">Offset calculator</text>
+  <text x="760" y="392" text-anchor="middle" font-size="11" fill="#A7F3D0">Drift corrector</text>
+  <text x="760" y="409" text-anchor="middle" font-size="11" fill="#A7F3D0">Local clock adjuster</text>
+
+  <!-- ===== ARROWS: Server to Clients (UDP) ===== -->
+  <!-- Server to Client1 -->
+  <line x1="380" y1="210" x2="185" y2="308" stroke="#F59E0B" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowY)"/>
+  <!-- Server to Client2 -->
+  <line x1="450" y1="210" x2="450" y2="308" stroke="#F59E0B" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowY)"/>
+  <!-- Server to ClientN -->
+  <line x1="520" y1="210" x2="715" y2="308" stroke="#F59E0B" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowY)"/>
+
+  <!-- UDP label on arrows -->
+  <rect x="245" y="235" width="120" height="22" rx="4" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="305" y="250" text-anchor="middle" font-size="11" fill="#92400E" font-weight="bold">UDP Port 5005</text>
+
+  <!-- SSL label -->
+  <rect x="545" y="235" width="130" height="22" rx="4" fill="#EDE9FE" stroke="#7C3AED"/>
+  <text x="610" y="250" text-anchor="middle" font-size="11" fill="#4C1D95" font-weight="bold">SSL/TLS Port 5006</text>
+
+  <!-- dots between client 2 and N -->
+  <text x="610" y="375" text-anchor="middle" font-size="22" fill="#64748B">•••</text>
+
+  <!-- ===== NTP PROTOCOL BOX ===== -->
+  <rect x="50" y="490" width="800" height="110" rx="10" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="450" y="512" text-anchor="middle" font-size="13" font-weight="bold" fill="#1E293B">NTP-style 4-Timestamp Protocol</text>
+  <line x1="60" y1="518" x2="840" y2="518" stroke="#CBD5E1" stroke-width="1"/>
+
+  <!-- Timeline -->
+  <line x1="100" y1="560" x2="830" y2="560" stroke="#94A3B8" stroke-width="1.5"/>
+
+  <!-- T1 -->
+  <circle cx="150" cy="560" r="5" fill="#2563EB"/>
+  <text x="150" y="548" text-anchor="middle" font-size="11" font-weight="bold" fill="#2563EB">T1</text>
+  <text x="150" y="580" text-anchor="middle" font-size="10" fill="#64748B">Client sends</text>
+
+  <!-- T2 -->
+  <circle cx="370" cy="560" r="5" fill="#DC2626"/>
+  <text x="370" y="548" text-anchor="middle" font-size="11" font-weight="bold" fill="#DC2626">T2</text>
+  <text x="370" y="580" text-anchor="middle" font-size="10" fill="#64748B">Server receives</text>
+
+  <!-- T3 -->
+  <circle cx="530" cy="560" r="5" fill="#DC2626"/>
+  <text x="530" y="548" text-anchor="middle" font-size="11" font-weight="bold" fill="#DC2626">T3</text>
+  <text x="530" y="580" text-anchor="middle" font-size="10" fill="#64748B">Server replies</text>
+
+  <!-- T4 -->
+  <circle cx="760" cy="560" r="5" fill="#2563EB"/>
+  <text x="760" y="548" text-anchor="middle" font-size="11" font-weight="bold" fill="#2563EB">T4</text>
+  <text x="760" y="580" text-anchor="middle" font-size="10" fill="#64748B">Client receives</text>
+
+  <!-- Formulas -->
+  <text x="450" y="598" text-anchor="middle" font-size="11" fill="#374151">
+    Offset θ = [(T2−T1) + (T3−T4)] / 2     |     Delay δ = (T4−T1) − (T3−T2)
+  </text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowY" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#F59E0B"/>
+    </marker>
+  </defs>
+</svg>
